@@ -13,6 +13,9 @@ h3 {
   width: 50px;
   aspect-ratio: 1;
   border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .green {
   background-color: green;

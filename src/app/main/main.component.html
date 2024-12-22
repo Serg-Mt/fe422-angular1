@@ -39,11 +39,6 @@
   Pipe slice: <span>{{ 'Hello World!' | slice: 6:11 }}</span><br />
   Pipe number: <span>{{ PI | number: '3.5-5' }}</span><br />
 
-
-
-
-
-
   <h3>Классы и стили</h3>
   <div class="flex">
     <div [class]="{ round: true, green: condition }"></div>
@@ -63,4 +58,13 @@
   <input [(ngModel)]="val" />
   <input [(ngModel)]="val" />
   <button (click)="toggleCondition()">{{condition}}</button>
+
+  <h3>Шаблонные переменные</h3>
+  <input #myInput [ngModel]="val" />
+  <span>myInput.value={{myInput.value}}</span>
+  <hr>
+  <div #myDiv [class]="{ round: true, green: condition,red:!condition }" (click)="toggleCondition()"></div>
+  <div style="height: 50px;width: 50px;" [class.red]="myDiv.classList.contains('red')"></div>
+  <input type="text" #myText [ngModel]="val" />
+  <div [class]="{ round: true, red:myText.value.length>10}">{{myText.value.length}}</div>
 </fieldset>
