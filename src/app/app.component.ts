@@ -13,6 +13,7 @@ export class AppComponent {
   nav = [
     { href: '/', title: 'Home1' },
     { href: '/les1', title: 'les 1 template lang' },
-    { href: '/les2', title: 'les 2 components' }
+    { href: '/les2', title: 'les 2 components' },
+    { href: '/les3', title: 'les 3 http client' }
   ];
 }

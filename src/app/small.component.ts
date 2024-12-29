@@ -8,9 +8,6 @@ import { FormsModule } from '@angular/forms';
 export class HomeComponent {
 }
 
-
-
-
 @Component({
   selector: 'les2-inp',
   imports: [FormsModule],
@@ -54,9 +51,24 @@ export class OutComponent {
   @Output() out = new EventEmitter;
 }
 
+@Component({
+  selector: 'les2-tw',
+  imports: [FormsModule],
+  template: `<input  [(ngModel)]="tw" (ngModelChange)="changeVal()">`
+})
+export class TwoWayComponent {
+  @Input() tw = '-default-';
+  @Output() twChange = new EventEmitter;
+  changeVal(){
+    this.twChange.emit(this.tw);
+  }
+}
+
+
+
 
 @Component({
-  imports: [InpComponent, FormsModule, InpComponent, InpSetter, OutComponent],
+  imports: [InpComponent, FormsModule, InpComponent, InpSetter, OutComponent, TwoWayComponent],
   templateUrl: './parent.component.html'
 })
 export class ParentComponent {
@@ -64,4 +76,5 @@ export class ParentComponent {
   arr = ['item1', 'item2'];
   addItemToStart(item: string) { this.arr.unshift(item) };
   addItemToEnd(item: string) { this.arr.push(item) }
+  setParentValue(v:string){this.parentValue = v}
 }
