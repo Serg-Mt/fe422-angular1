@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 
 
 @Component({
+  selector: 'unused-selector',
   template: `++HOME++`
 })
 export class HomeComponent {
@@ -59,7 +60,7 @@ export class OutComponent {
 export class TwoWayComponent {
   @Input() tw = '-default-';
   @Output() twChange = new EventEmitter;
-  changeVal(){
+  changeVal() {
     this.twChange.emit(this.tw);
   }
 }
@@ -76,5 +77,5 @@ export class ParentComponent {
   arr = ['item1', 'item2'];
   addItemToStart(item: string) { this.arr.unshift(item) };
   addItemToEnd(item: string) { this.arr.push(item) }
-  setParentValue(v:string){this.parentValue = v}
+  setParentValue(v: string) { this.parentValue = v }
 }

@@ -1,0 +1,19 @@
+<h4>les 4</h4>
+<fieldset>
+  <legend>posts</legend>
+  @for(post of posts;track post){
+    <span>{{post.title}}</span>,
+  }
+</fieldset>
+@if (users | async; as _users) {
+<ol>
+  @for (user of _users;track user.id){
+  <li>{{user.name}}
+    <button (click)="getPosts(user.id)">show posts</button>
+  </li>
+  }
+</ol>
+} @else {
+loading...
+}
+π = {{PI}}
